@@ -8,18 +8,35 @@ let numbers = document.querySelectorAll(".number");
 let operations = document.querySelectorAll(".operation");
 let clear = document.querySelector(".clear");
 let equals = document.querySelector(".equals");
+let decimal = document.querySelector(".decimal");
 
 display();
 
 // functions --------------------------------------------
+decimal.addEventListener("click", eventHandler);
+
+function eventHandler(e) {
+    displayedString += e.target.id;
+    screen.textContent = displayedString;
+    this.removeEventListener("click", eventHandler);
+}
+
 equals.addEventListener("click", () => {
     parse(displayedString);
     if(operator === "="){
         displayedString = first;
     } else {
-        displayedString = Math.round(operate(operator, parseInt(first), parseInt(second))* 1000000000)/ 1000000000;
+        displayedString = operate(operator, parseInt(first), parseInt(second));
+    }
+    displayedString = displayedString.toString();
+    console.log(displayedString)
+    console.log(displayedString.length);
+    if(displayedString.length > 12){
+        console.log("long");
+        displayedString = displayedString.slice(0, 12);
     }
     screen.textContent = displayedString;
+    decimal.addEventListener("click", eventHandler);
 });
 
 clear.addEventListener("click", () => {

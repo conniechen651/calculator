@@ -14,6 +14,10 @@ body{
     justify-content: center;
 }
 
+.zero{
+    width: 160px;
+}
+
 button{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
@@ -24,6 +28,7 @@ button{
     background-color: rgb(247, 90, 132);
     color: white;
     box-shadow: none;
+    margin: 10px;
 }
 
 #screen{
@@ -45,24 +50,17 @@ button{
     justify-content: center;
     flex-wrap: wrap;
     border-radius: 20px;
-    height: 530px;
+    height: 630px;
     width: 395px;
     background-color: rgb(255, 170, 190);
 }
 
-.number{
-    margin: 10px;
-}
-
 .operation{
-    margin: 10px;
     background-color: rgb(142, 186, 121);
 }
 
 .clear{
-    margin: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    width: 255px;
     background-color: rgb(142, 186, 121);
 }
 
