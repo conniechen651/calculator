@@ -1,18 +1,86 @@
+let displayedString = "";
 let first;
 let second;
 let operator;
 
+let screen = document.querySelector("#screen");
+let numbers = document.querySelectorAll(".number");
+let operations = document.querySelectorAll(".operation");
+let clear = document.querySelector(".clear");
+let equals = document.querySelector(".equals");
+
+display();
+
+// functions --------------------------------------------
+equals.addEventListener("click", () => {
+    parse(displayedString);
+    if(operator === "="){
+        displayedString = first;
+    } else {
+        displayedString = operate(operator, parseInt(first), parseInt(second));
+    }
+    screen.textContent = displayedString;
+});
+
+clear.addEventListener("click", () => {
+    displayedString = "";
+    screen.textContent = displayedString;
+    operator=null;
+    first = null;
+    second = null;
+});
+
+function parse(str){
+    let index;
+    if(str.includes("+")){
+        operator = "+";
+        index = str.indexOf("+");
+    } else if (str.includes("-")){
+        operator = "-";
+        index = str.indexOf("-");
+    } else if (str.includes("x")){
+        operator = "x";
+        index = str.indexOf("x");
+    } else if (str.includes("÷")){
+        operator = "÷";
+        index = str.indexOf("÷");
+    } else {
+        operator = "=";
+        first = str.slice(0, str.indexOf("="));
+        return;
+    }
+    first = str.slice(0, index);
+    second = str.slice(index+1, str.length-1);
+}
+
+
+function display(){
+    numbers.forEach((number) => {
+        number.addEventListener("click", (e) => {
+            displayedString += e.target.id;
+            screen.textContent = displayedString;
+        });
+    });
+    operations.forEach((operation) => {
+        operation.addEventListener("click", (e) =>{
+            displayedString += e.target.id;
+            screen.textContent = displayedString;
+        });
+    });
+}
+
 function operate(op, num1, num2){
     if(op === "+"){
         return add(num1, num2);
-    } else if (op === "-"){
+    } else if(op === "-"){
         return subtract(num1, num2);
-    } else if (op === "*"){
+    } else if(op === "x"){
         return multiply(num1, num2);
-    } else{
+    } else if (op === "÷"){
         return divide(num1, num2);
     }
 }
+
 function add(a, b){
     return a+b;
 }
