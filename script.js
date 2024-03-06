@@ -29,10 +29,7 @@ equals.addEventListener("click", () => {
         displayedString = operate(operator, parseInt(first), parseInt(second));
     }
     displayedString = displayedString.toString();
-    console.log(displayedString)
-    console.log(displayedString.length);
     if(displayedString.length > 12){
-        console.log("long");
         displayedString = displayedString.slice(0, 12);
     }
     screen.textContent = displayedString;
