@@ -17,7 +17,7 @@ equals.addEventListener("click", () => {
     if(operator === "="){
         displayedString = first;
     } else {
-        displayedString = operate(operator, parseInt(first), parseInt(second));
+        displayedString = Math.round(operate(operator, parseInt(first), parseInt(second))* 1000000000)/ 1000000000;
     }
     screen.textContent = displayedString;
 });
