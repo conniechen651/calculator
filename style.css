@@ -63,9 +63,17 @@ button:hover{
     background-color: rgb(142, 186, 121);
 }
 
+.operation:hover{
+    background-color: rgb(110, 149, 92);
+}
+
 .clear{
     width: 255px;
     background-color: rgb(142, 186, 121);
+}
+
+.clear:hover{
+    background-color: rgb(110, 149, 92);
 }
 
 .bottom{
