@@ -31,6 +31,10 @@ button{
     margin: 10px;
 }
 
+button:hover{
+    background-color: rgb(229, 75, 116);
+}
+
 #screen{
     display: flex;
     flex-direction: column;
